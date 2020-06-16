@@ -49,8 +49,37 @@ Each node should have the following info:
 
 We can only have docker and docker-compose on our machines, so your server needs to be run, using them.
 
-Running with Docker: 
+Overall Design:
+
+SQL Lite database table `node` for persistence data store. More information are located in app/setup.py
+
+API endpoints are located in app/api.py
+
+Running the app with Docker
 
 Build the docker image: `docker build -t docker-flask:latest . `
 
-Run the app: `docker run --name flaskapp -v$PWD/app:/app -p5000:5000 docker-flask:latest`
+Run the app: `docker run --name flaskapp -dt -v$PWD/app:/app -p5000:5000 docker-flask:latest`
+
+Example API calls:
+
+```
+vannguyen@MacBook-Pro ~ % curl --location --request GET 'http://0.0.0.0:5000/nodes/b'
+{
+  "code": 200, 
+  "response": "Descendant node(s) of b: c ", 
+  "success": "true"
+}
+vannguyen@MacBook-Pro ~ % curl --location --request GET 'http://0.0.0.0:5000/nodes/a'
+{
+  "code": 200, 
+  "response": "Node a does not have any descendant node.", 
+  "success": "true"
+}
+vannguyen@MacBook-Pro ~ % curl --location --request PUT 'http://127.0.0.1:5000/nodes/c?new_parent=b'
+{
+  "code": 200, 
+  "response": "Updated node c to new parent node b", 
+  "success": "true"
+}
+```

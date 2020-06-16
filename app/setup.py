@@ -20,7 +20,7 @@ create_statements = {
 }
 
 insert_statements = {
-    # Insert statement for album table.
+    # Insert statement for node table.
     'node_insert_sql' : """INSERT INTO node(name, parent_name, root_name, height) VALUES
         ("root", "NULL", "root", 0),
         ("a", "root", "root", 1),

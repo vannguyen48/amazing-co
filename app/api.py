@@ -7,7 +7,6 @@ filename: api.py
 
 from abstract_database_connection import AbstractDatabaseConnection
 from flask import Flask, jsonify, request
-import node
 
 amazingco = Flask(__name__)
 
@@ -126,4 +125,4 @@ def change_parent(node, new_parent):
 
 if __name__ == '__main__':
     # TODO: Turn off debugging in production.
-    amazingco.run(debug=True)
+    amazingco.run(debug=True, host='0.0.0.0')
