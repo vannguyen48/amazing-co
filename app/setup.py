@@ -1,3 +1,10 @@
+"""
+Van Nguyen
+Tradeshift Mid level coding exercise.
+6/15/2020
+filename: setup.py
+"""
+
 import sqlite3
 from abstract_database_connection import AbstractDatabaseConnection
 

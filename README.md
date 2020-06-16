@@ -52,4 +52,5 @@ We can only have docker and docker-compose on our machines, so your server needs
 Running with Docker: 
 
 Build the docker image: `docker build -t docker-flask:latest . `
+
 Run the app: `docker run --name flaskapp -v$PWD/app:/app -p5000:5000 docker-flask:latest`
